@@ -1,4 +1,5 @@
 "use client";
+
 import { useState, useCallback } from "react";
 
 import Avatar from "../Avatar";
@@ -6,7 +7,7 @@ import MenuItem from "./MenuItem";
 
 import { AiOutlineMenu } from "react-icons/ai";
 
-export default function UserMenu() {
+const UserMenu = () => {
   const [isOpen, setIsOpen] = useState(false);
 
   const toggleOpen = useCallback(() => {
@@ -44,4 +45,6 @@ export default function UserMenu() {
       )}
     </div>
   );
-}
+};
+
+export default UserMenu;

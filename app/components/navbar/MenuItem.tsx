@@ -5,7 +5,6 @@ interface MenuItemProps {
   label: string;
 }
 
-// Using a function expression instead of a function declaration to keep syntax cleaner.
 const MenuItem: React.FC<MenuItemProps> = ({ onClick, label }) => {
   return (
     <div

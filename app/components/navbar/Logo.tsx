@@ -1,9 +1,9 @@
 "use client";
 
-import Image from "next/image";
 import { useRouter } from "next/navigation";
+import Image from "next/image";
 
-export default function Logo() {
+const Logo = () => {
   const router = useRouter();
 
   return (
@@ -15,4 +15,6 @@ export default function Logo() {
       src="/images/airbnb.svg"
     />
   );
-}
+};
+
+export default Logo;

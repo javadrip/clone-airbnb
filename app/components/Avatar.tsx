@@ -2,7 +2,7 @@
 
 import Image from "next/image";
 
-export default function Avatar() {
+const Avatar = () => {
   return (
     <Image
       className="rounded-full"
@@ -12,4 +12,6 @@ export default function Avatar() {
       src="/images/placeholder.jpg"
     />
   );
-}
+};
+
+export default Avatar;
