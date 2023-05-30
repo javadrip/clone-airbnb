@@ -1,6 +1,6 @@
 "use client";
 
-import { User } from "@prisma/client";
+import { SafeUser } from "../../../app/types/index";
 
 import Container from "../Container";
 import Logo from "./Logo";
@@ -8,8 +8,8 @@ import Search from "./Search";
 import UserMenu from "./UserMenu";
 
 interface NavbarProps {
-  // User comes from Prisma schema which was pushed to the database
-  currentUser?: User | null;
+  // SafeUser comes from ./app/types/index.tsx
+  currentUser?: SafeUser | null;
 }
 
 const Navbar: React.FC<NavbarProps> = ({ currentUser }) => {

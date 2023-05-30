@@ -25,7 +25,13 @@ export default async function getCurrentUser() {
       return null;
     }
 
-    return currentUser;
+    return {
+      ...currentUser,
+      // Convert the date to a string to avoid JSON serialization errors that may cause hydration issues.
+      createdAt: currentUser.createdAt.toISOString(),
+      updatedAt: currentUser.updatedAt.toISOString(),
+      emailVerified: currentUser.emailVerified?.toISOString() || null,
+    };
   } catch (error: any) {
     return null;
   }
