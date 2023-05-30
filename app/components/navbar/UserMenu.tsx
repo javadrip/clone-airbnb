@@ -1,6 +1,7 @@
 "use client";
 
 import { useState, useCallback } from "react";
+import { signOut } from "next-auth/react";
 import { User } from "@prisma/client";
 import useLoginModal from "../hooks/useLoginModal";
 import useRegisterModal from "../hooks/useRegisterModal";
@@ -53,7 +54,7 @@ const UserMenu: React.FC<UserMenuProps> = ({ currentUser }) => {
                 <MenuItem onClick={() => {}} label="My properties" />
                 <MenuItem onClick={() => {}} label="Airbnb my home" />
                 <hr />
-                <MenuItem onClick={() => {}} label="Log out" />
+                <MenuItem onClick={() => signOut()} label="Log out" />
               </>
             ) : (
               <>
