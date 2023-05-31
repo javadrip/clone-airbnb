@@ -1,3 +1,5 @@
+"use client";
+
 import { useSearchParams, usePathname } from "next/navigation";
 
 import Container from "../Container";
