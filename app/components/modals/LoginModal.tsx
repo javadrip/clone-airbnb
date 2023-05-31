@@ -1,9 +1,9 @@
 "use client";
 
 import { useCallback, useState } from "react";
-
-import { useRouter } from "next/navigation";
 import { signIn } from "next-auth/react";
+import { useRouter } from "next/navigation";
+
 import { toast } from "react-hot-toast";
 import { FieldValues, SubmitHandler, useForm } from "react-hook-form";
 
@@ -11,17 +11,19 @@ import useRegisterModal from "../hooks/useRegisterModal";
 import useLoginModal from "../hooks/useLoginModal";
 
 import Modal from "./Modal";
-import Input from "../inputs/Input";
 import Heading from "../Heading";
+import Input from "../inputs/Input";
 import Button from "../Button";
 
-import { FcGoogle } from "react-icons/fc";
 import { AiFillGithub } from "react-icons/ai";
+import { FcGoogle } from "react-icons/fc";
 
 const LoginModal = () => {
   const router = useRouter();
+
   const loginModal = useLoginModal();
   const registerModal = useRegisterModal();
+
   const [isLoading, setIsLoading] = useState(false);
 
   const {
@@ -104,7 +106,7 @@ const LoginModal = () => {
       text-neutral-500 text-center mt-4 font-light"
       >
         <p>
-          First time using Airbnb?
+          First time using Airbnb? &nbsp;
           <span
             onClick={onToggle}
             className="
