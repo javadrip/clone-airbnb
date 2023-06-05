@@ -11,6 +11,7 @@ import Heading from "../Heading";
 import { categories } from "../navbar/Categories";
 import CategoryInput from "../inputs/CategoryInput";
 import CountrySelect from "../inputs/CountrySelect";
+import dynamic from "next/dynamic";
 
 enum STEPS {
   CATEGORY = 0,
@@ -49,6 +50,13 @@ const RentModal = () => {
 
   const category = watch("category");
   const location = watch("location");
+
+  // Map has to be loaded dynamically, because it uses Leaflet which is not SSR compatible
+  // Ignore location warning, because we are using dynamic import and we know location is necessary
+  const Map = useMemo(
+    () => dynamic(() => import("../Map"), { ssr: false }),
+    [location]
+  );
 
   const setCustomValue = (id: string, value: any) => {
     setValue(id, value, {
@@ -125,6 +133,8 @@ const RentModal = () => {
           value={location}
           onChange={value => setCustomValue("location", value)}
         />
+        {/* Map is loaded dynamically, because it uses Leaflet which is not SSR compatible */}
+        <Map center={location?.latlng} />
       </div>
     );
   }
