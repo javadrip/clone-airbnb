@@ -1,4 +1,8 @@
-import { User } from "@prisma/client";
+import { Listing, User } from "@prisma/client";
+
+export type SafeListing = Omit<Listing, "createdAt"> & {
+  createdAt: string;
+};
 
 // Created because in getCurrentUser.ts, we converted dates to strings, but in Navbar.tsx, the User type is used, which expects createdAt, updatedAt, and emailVerified to be Date objects. This type is used in Navbar.tsx instead of User.
 export type SafeUser = Omit<
