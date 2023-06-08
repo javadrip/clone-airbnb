@@ -1,4 +1,5 @@
 import EmptyState from "@/app/components/EmptyState";
+import ClientOnly from "../components/ClientOnly";
 
 import getCurrentUser from "@/app/actions/getCurrentUser";
 import getListings from "../actions/getListings";
@@ -16,14 +17,20 @@ const PropertiesPage = async () => {
 
   if (listings.length === 0) {
     return (
-      <EmptyState
-        title="No properties found"
-        subtitle="Looks like you have no properties."
-      />
+      <ClientOnly>
+        <EmptyState
+          title="No properties found"
+          subtitle="Looks like you have no properties."
+        />
+      </ClientOnly>
     );
   }
 
-  return <PropertiesClient listings={listings} currentUser={currentUser} />;
+  return (
+    <ClientOnly>
+      <PropertiesClient listings={listings} currentUser={currentUser} />
+    </ClientOnly>
+  );
 };
 
 export default PropertiesPage;
