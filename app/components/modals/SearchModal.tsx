@@ -10,7 +10,10 @@ import qs from "query-string";
 import useSearchModal from "@/app/hooks/useSearchModal";
 
 import Modal from "./Modal";
-import { CountrySelectValue } from "../inputs/CountrySelect";
+import Heading from "../Heading";
+import CountrySelect, { CountrySelectValue } from "../inputs/CountrySelect";
+import Calendar from "../inputs/Calendar";
+import Counter from "../inputs/Counter";
 
 enum STEPS {
   LOCATION = 0,
@@ -114,13 +117,76 @@ const SearchModal = () => {
     return "Back";
   }, [step]);
 
+  let bodyContent = (
+    <div className="flex flex-col gap-8">
+      <Heading
+        title="Where do you wanna go?"
+        subtitle="Find the perfect location!"
+      />
+      <CountrySelect
+        value={location}
+        onChange={value => setLocation(value as CountrySelectValue)}
+      />
+      <hr />
+      <Map center={location?.latlng} />
+    </div>
+  );
+
+  if (step === STEPS.DATE) {
+    bodyContent = (
+      <div className="flex flex-col gap-8">
+        <Heading
+          title="When do you plan to go?"
+          subtitle="Make sure everyone is free!"
+        />
+        <Calendar
+          onChange={value => setDateRange(value.selection)}
+          value={dateRange}
+        />
+      </div>
+    );
+  }
+
+  if (step === STEPS.INFO) {
+    bodyContent = (
+      <div className="flex flex-col gap-8">
+        <Heading title="More information" subtitle="Find your perfect place!" />
+        <Counter
+          onChange={value => setGuestCount(value)}
+          value={guestCount}
+          title="Guests"
+          subtitle="How many guests are coming?"
+        />
+        <hr />
+        <Counter
+          onChange={value => setRoomCount(value)}
+          value={roomCount}
+          title="Rooms"
+          subtitle="How many rooms do you need?"
+        />
+        <hr />
+        <Counter
+          onChange={value => {
+            setBathroomCount(value);
+          }}
+          value={bathroomCount}
+          title="Bathrooms"
+          subtitle="How many bahtrooms do you need?"
+        />
+      </div>
+    );
+  }
+
   return (
     <Modal
       isOpen={searchModal.isOpen}
       onClose={searchModal.onClose}
-      onSubmit={searchModal.onOpen}
+      onSubmit={onSubmit}
       title="Filters"
-      actionLabel="Search"
+      actionLabel={actionLabel}
+      secondaryAction={step === STEPS.LOCATION ? undefined : onBack}
+      secondaryActionLabel={secondaryActionLabel}
+      body={bodyContent}
     />
   );
 };
