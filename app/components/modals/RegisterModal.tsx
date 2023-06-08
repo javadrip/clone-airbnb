@@ -63,16 +63,16 @@ const RegisterModal = () => {
     <div className="flex flex-col gap-4">
       <Heading title="Welcome to Airbnb" subtitle="Sign up to get started" />
       <Input
-        id="email"
-        label="Email address"
+        id="name"
+        label="Name"
         disabled={isLoading}
         register={register}
         errors={errors}
         required
       />
       <Input
-        id="name"
-        label="Name"
+        id="email"
+        label="Email address"
         disabled={isLoading}
         register={register}
         errors={errors}
