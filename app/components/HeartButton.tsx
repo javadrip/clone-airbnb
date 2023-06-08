@@ -1,6 +1,6 @@
 "use client";
 
-import useFavorite from "./hooks/useFavorite";
+import useFavorite from "../hooks/useFavorite";
 
 import { SafeUser } from "@/app/types";
 

@@ -8,7 +8,7 @@ import axios from "axios";
 import { useForm, FieldValues, SubmitHandler } from "react-hook-form";
 import toast from "react-hot-toast";
 
-import useRentModal from "../hooks/useRentModal";
+import useRentModal from "../../hooks/useRentModal";
 
 import Modal from "./Modal";
 import Heading from "../Heading";

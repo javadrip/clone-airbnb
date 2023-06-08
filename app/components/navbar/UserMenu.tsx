@@ -3,9 +3,9 @@
 import { useState, useCallback } from "react";
 import { signOut } from "next-auth/react";
 import { SafeUser } from "../../../app/types/index";
-import useLoginModal from "../hooks/useLoginModal";
-import useRegisterModal from "../hooks/useRegisterModal";
-import useRentModal from "../hooks/useRentModal";
+import useLoginModal from "../../hooks/useLoginModal";
+import useRegisterModal from "../../hooks/useRegisterModal";
+import useRentModal from "../../hooks/useRentModal";
 
 import Avatar from "../Avatar";
 import MenuItem from "./MenuItem";
