@@ -17,9 +17,9 @@ const font = Nunito({ subsets: ["latin"] });
 
 export const metadata = {
   title:
-    "Airbnb: Vacation Rentals, Cabins, Beach Houses, Unique Homes & Experiences",
+    "Fairbnb: Because the real deal is unreal, but at least we're cheaper.",
   description:
-    "Find vacation rentals, cabins, beach houses, unique homes and experiences around the world - all made possible by hosts on Airbnb.",
+    "Find non-existent vacation rentals, cabins, beach houses, unique homes and experiences around the world | all made possible by hosts on Fairbnb.",
 };
 
 export default async function RootLayout({
